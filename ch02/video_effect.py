@@ -30,6 +30,31 @@ fourcc = cv2.VideoWriter_fourcc(*'DIVX')
 # 출력 동영상 객체 생성
 out = cv2.VideoWriter('output.avi', fourcc, fps, (w, h))
 
+#
+# while True:
+#     ret1, frame1 = cap1.read()
+    
+#     if not ret1:
+#         break
+
+#     out.write(frame1)
+
+#     cv2.imshow('frame', frame1)
+#     cv2.waitKey(delay)
+
+# while True:
+#     ret2, frame2 = cap2.read()
+    
+#     if not ret2:
+#         break
+
+#     out.write(frame2)
+
+#     cv2.imshow('frame', frame2)
+#     cv2.waitKey(delay)
+#
+
+
 # 1번 동영상 복사
 for i in range(frame_cnt1 - effect_frames):
     ret1, frame1 = cap1.read()
@@ -55,12 +80,13 @@ for i in range(effect_frames):
 
     dx = int(w / effect_frames) * i
 
-    frame = np.zeros((h, w, 3), dtype=np.uint8)
-    frame[:, 0:dx, :] = frame2[:, 0:dx, :]
-    frame[:, dx:w, :] = frame1[:, dx:w, :]
+    # 옆으로 넘어감
+    # frame = np.zeros((h, w, 3), dtype=np.uint8)
+    # frame[:, 0:dx, :] = frame2[:, 0:dx, :]
+    # frame[:, dx:w, :] = frame1[:, dx:w, :]
 
-    #alpha = i / effect_frames
-    #frame = cv2.addWeighted(frame1, 1 - alpha, frame2, alpha, 0)
+    alpha = i / effect_frames
+    frame = cv2.addWeighted(frame1, 1 - alpha, frame2, alpha, 0)
 
     out.write(frame)
     print('.', end='')

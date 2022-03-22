@@ -15,6 +15,8 @@ t1 = time.time()
 edge = cv2.Canny(img, 50, 150)
 
 tm.stop()
-print('time:', (time.time() - t1) * 1000)
-print('Elapsed time: {}ms.'.format(tm.getTimeMilli()))
 
+ms = tm.getTimeMilli()
+
+print('time:', (time.time() - t1) * 1000)
+print('Elapsed time: {}ms.'.format(ms))

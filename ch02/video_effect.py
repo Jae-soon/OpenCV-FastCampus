@@ -85,6 +85,7 @@ for i in range(effect_frames):
     # frame[:, 0:dx, :] = frame2[:, 0:dx, :]
     # frame[:, dx:w, :] = frame1[:, dx:w, :]
 
+    # desolve
     alpha = i / effect_frames
     frame = cv2.addWeighted(frame1, 1 - alpha, frame2, alpha, 0)
 

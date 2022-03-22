@@ -1,7 +1,6 @@
 import sys
 import cv2
 
-
 cap = cv2.VideoCapture(0)
 
 if not cap.isOpened():
@@ -28,7 +27,7 @@ while True:
     if not ret:
         break
 
-    inversed = ~frame
+    inversed = ~frame # 반전
 
     out.write(inversed)
 

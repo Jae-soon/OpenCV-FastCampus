@@ -6,7 +6,7 @@ import cv2
 oldx = oldy = -1
 
 def on_mouse(event, x, y, flags, param):
-    global oldx, oldy
+    global img, oldx, oldy
 
     if event == cv2.EVENT_LBUTTONDOWN:
         oldx, oldy = x, y

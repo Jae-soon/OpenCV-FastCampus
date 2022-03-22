@@ -11,7 +11,7 @@ if src is None or mask is None or dst is None:
     print('Image load failed!')
     sys.exit()
 
-cv2.copyTo(src, mask, dst)
+cv2.copyTo(src, mask, dst) # src와 dst는 같은 타입
 # dst[mask > 0] = src[mask > 0]
 
 cv2.imshow('src', src)
@@ -19,6 +19,24 @@ cv2.imshow('dst', dst)
 cv2.imshow('mask', mask)
 cv2.waitKey()
 cv2.destroyAllWindows()
+
+src = cv2.imread('opencv-logo-white.png', cv2.IMREAD_UNCHANGED)
+mask = src[:, :, -1] # 투명한 부분만 저장
+src = src[:, :, 0:3] # 불투명한 부분 저장
+dst = cv2.imread('field.bmp', cv2.IMREAD_COLOR)
+
+h, w = src.shape[:2] # 로고의 크기만큼 w, h 지정
+
+crop = dst[0:h, 0:w] # 로그의 크기만큼 배경 영역 지정
+
+cv2.copyTo(src, mask, crop)
+
+cv2.imshow('src', src)
+cv2.imshow('mask', mask)
+cv2.imshow('crop', crop)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
 
 # 알파 채널을 마스크 영상으로 이용
 src = cv2.imread('cat.bmp', cv2.IMREAD_COLOR)

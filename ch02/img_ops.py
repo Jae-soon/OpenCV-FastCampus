@@ -5,7 +5,7 @@ import cv2
 # 새 영상 생성하기
 img1 = np.empty((240, 320), dtype=np.uint8)       # grayscale image
 img2 = np.zeros((240, 320, 3), dtype=np.uint8)    # color image
-img3 = np.ones((240, 320), dtype=np.uint8) * 255  # dark gray
+img3 = np.ones((240, 320), dtype=np.uint8) * 255  # white
 img4 = np.full((240, 320, 3), 128, dtype=np.uint8)  # yellow
 
 cv2.imshow('img1', img1)
@@ -18,10 +18,10 @@ cv2.destroyAllWindows()
 # 영상 복사
 img1 = cv2.imread('HappyFish.jpg')
 
-img2 = img1
-img3 = img1.copy()
+img2 = img1 # img2 = img1의 값을 공유(img1의 값을 변경하면 img2도 함께 변경)
+img3 = img1.copy()  # img3 = img1의 값을 똑같이 복사(img1의 값을 변경해도 img3은 값이 변경x)
 
-#img1.fill(255)
+img1[:, :] = (0, 255, 255)
 
 cv2.imshow('img1', img1)
 cv2.imshow('img2', img2)
@@ -35,7 +35,8 @@ img1 = cv2.imread('HappyFish.jpg')
 img2 = img1[40:120, 30:150]  # numpy.ndarray의 슬라이싱
 img3 = img1[40:120, 30:150].copy()
 
-img2.fill(0)
+# img2.fill(0)
+cv2.circle(img2, (50, 50), 20, (0, 0, 255), 2)
 
 cv2.imshow('img1', img1)
 cv2.imshow('img2', img2)

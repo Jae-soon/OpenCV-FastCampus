@@ -18,6 +18,8 @@ if not cap2.isOpened():
     sys.exit()
 
 # 두 동영상의 크기, FPS는 같다고 가정
+w = round(cap1.get(cv2.CAP_PROP_FRAME_WIDTH))
+h = round(cap1.get(cv2.CAP_PROP_FRAME_HEIGHT))
 frame_cnt1 = round(cap1.get(cv2.CAP_PROP_FRAME_COUNT))
 frame_cnt2 = round(cap2.get(cv2.CAP_PROP_FRAME_COUNT))
 print('frame_cnt1:', frame_cnt1)
@@ -26,8 +28,12 @@ print('frame_cnt2:', frame_cnt2)
 fps = cap1.get(cv2.CAP_PROP_FPS)
 delay = int(1000 / fps)
 
+# 출력 동영상 객체 생성
+fourcc = cv2.VideoWriter_fourcc(*'DIVX')
+out = cv2.VideoWriter('output.avi', fourcc, fps, (w, h))
+
 # 합성 여부 플래그
-do_composit = False
+do_composit = False # True = 합성, False = 합성안함
 
 # 전체 동영상 재생
 while True:
@@ -36,6 +42,9 @@ while True:
     if not ret1:
         break
     
+    # 크기를 같게 만듦
+    frame2 = cv2.resize(frame2, (w, h))
+
     # do_composit 플래그가 True일 때에만 합성
     if do_composit:
         ret2, frame2 = cap2.read()

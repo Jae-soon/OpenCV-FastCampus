@@ -11,10 +11,10 @@ if src is None:
     print('Image load failed!')
     sys.exit()
 
-x, y, w, h = cv2.selectROI(src)
+x, y, w, h = cv2.selectROI(src) # ROI 영역 드래그로 선택
 
 src_ycrcb = cv2.cvtColor(src, cv2.COLOR_BGR2YCrCb)
-crop = src_ycrcb[y:y+h, x:x+w]
+crop = src_ycrcb[y:y+h, x:x+w] # 사용자가 선택한 사각형 영역 부분
 
 channels = [1, 2]
 cr_bins = 128

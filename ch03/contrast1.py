@@ -9,8 +9,8 @@ if src is None:
     print('Image load failed!')
     sys.exit()
 
-alpha = 1.0
-dst = np.clip((1+alpha)*src - 128*alpha, 0, 255).astype(np.uint8)
+alpha = 3.0
+dst = np.clip((1 + alpha) * src - 128 * alpha, 0, 255).astype(np.uint8)
 
 cv2.imshow('src', src)
 cv2.imshow('dst', dst)

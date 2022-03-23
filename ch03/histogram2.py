@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import cv2
 
-
+# openCV로만 히스토그램 생성
 def getGrayHistImage(hist):
     imgHist = np.full((100, 256), 255, dtype=np.uint8)
 

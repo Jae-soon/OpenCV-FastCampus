@@ -11,7 +11,7 @@ if src is None:
     print('Image load failed!')
     sys.exit()
 
-hist = cv2.calcHist([src], [0], None, [256], [0, 256])
+hist = cv2.calcHist([src], [0], None, [256], [0, 256]) # 리스트로 줌
 
 cv2.imshow('src', src)
 cv2.waitKey(1)

@@ -12,7 +12,7 @@ if src is None:
 src_hsv = cv2.cvtColor(src, cv2.COLOR_BGR2HSV)
 
 def on_trackbar(pos):
-    hmin = cv2.getTrackbarPos('H_min', 'dst')
+    hmin = cv2.getTrackbarPos('H_min', 'dst') # dst창의 H_min 트랙바 값 가져오기
     hmax = cv2.getTrackbarPos('H_max', 'dst')
 
     dst = cv2.inRange(src_hsv, (hmin, 150, 0), (hmax, 255, 255))

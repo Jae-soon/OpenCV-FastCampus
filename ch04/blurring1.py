@@ -9,12 +9,17 @@ if src is None:
     print('Image load failed!')
     sys.exit()
 
-#kernel = np.ones((3, 3), dtype=np.float64) / 9.
-#dst = cv2.filter2D(src, -1, kernel)
-dst = cv2.blur(src, (3, 3))
+# kernel = np.array([[1/9, 1/9, 1/9],
+#                    [1/9, 1/9, 1/9],
+#                    [1/9, 1/9, 1/9]], dtype=np.float32)
+kernel = np.ones((3, 3), dtype=np.float64) / 9
+
+dst = cv2.filter2D(src, -1, kernel)
+dst_blur = cv2.blur(src, (3, 3))
 
 cv2.imshow('src', src)
 cv2.imshow('dst', dst)
+cv2.imshow('blur', dst_blur)
 cv2.waitKey()
 
 cv2.destroyAllWindows()

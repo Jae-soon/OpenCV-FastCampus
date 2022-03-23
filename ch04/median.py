@@ -8,7 +8,7 @@ if src is None:
     print('Image load failed!')
     sys.exit()
 
-dst = cv2.medianBlur(src, 3)
+dst = cv2.medianBlur(src, 3) # kernel 크기는 홀수만 입력
 
 cv2.imshow('src', src)
 cv2.imshow('dst', dst)

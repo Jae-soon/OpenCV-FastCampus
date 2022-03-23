@@ -5,7 +5,7 @@ import cv2
 
 src = cv2.imread('rose.bmp', cv2.IMREAD_GRAYSCALE)
 
-dst = cv2.GaussianBlur(src, (0, 0), 3)
+dst = cv2.GaussianBlur(src, (0, 0), 3) # 조금 더 깔끔
 dst2 = cv2.blur(src, (7, 7))
 
 cv2.imshow('src', src)

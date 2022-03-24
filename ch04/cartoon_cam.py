@@ -7,24 +7,24 @@ import cv2
 
 def cartoon_filter(img):
     h, w = img.shape[:2]
-    img2 = cv2.resize(img, (w//2, h//2))
+    img = cv2.resize(img, (w//2, h//2))
 
-    blr = cv2.bilateralFilter(img2, -1, 20, 7)
-    edge = 255 - cv2.Canny(img2, 80, 120)
+    blr = cv2.bilateralFilter(img, -1, 20, 7)
+    edge = 255 - cv2.Canny(img, 50, 120)
     edge = cv2.cvtColor(edge, cv2.COLOR_GRAY2BGR)
-
+    
     dst = cv2.bitwise_and(blr, edge)
-    dst = cv2.resize(dst, (w, h), interpolation=cv2.INTER_NEAREST)
+    dst = cv2.resize(dst, (w, h), interpolation=cv2.INTER_NEAREST) # interpolation 사용 시 
 
     return dst
-
 
 def pencil_sketch(img):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     blr = cv2.GaussianBlur(gray, (0, 0), 3)
     dst = cv2.divide(gray, blr, scale=255)
-    return dst
+    dst = cv2.cvtColor(dst, cv2.COLOR_GRAY2BGR)
 
+    return dst
 
 cap = cv2.VideoCapture(0)
 

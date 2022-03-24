@@ -13,6 +13,7 @@ dst1 = cv2.resize(src, (0, 0), fx=4, fy=4, interpolation=cv2.INTER_NEAREST)
 dst2 = cv2.resize(src, (1920, 1280))  # cv2.INTER_LINEAR
 dst3 = cv2.resize(src, (1920, 1280), interpolation=cv2.INTER_CUBIC)
 dst4 = cv2.resize(src, (1920, 1280), interpolation=cv2.INTER_LANCZOS4)
+# interploation = 보간법
 
 cv2.imshow('src', src)
 cv2.imshow('dst1', dst1[500:900, 400:800])

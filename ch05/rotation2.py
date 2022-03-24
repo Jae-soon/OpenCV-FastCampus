@@ -9,7 +9,7 @@ if src is None:
     print('Image load failed!')
     sys.exit()
 
-cp = (src.shape[1] / 2, src.shape[0] / 2)
+cp = (src.shape[1] / 2, src.shape[0] / 2) # center point(w, h)
 rot = cv2.getRotationMatrix2D(cp, 20, 0.5)
 
 dst = cv2.warpAffine(src, rot, (0, 0))

@@ -15,7 +15,7 @@ dstQuad = np.array([[0, 0], [w-1, 0], [w-1, h-1], [0, h-1]], np.float32)
 
 pers = cv2.getPerspectiveTransform(srcQuad, dstQuad)
 dst = cv2.warpPerspective(src, pers, (w, h))
-
+ 
 cv2.imshow('src', src)
 cv2.imshow('dst', dst)
 cv2.waitKey()

@@ -9,8 +9,7 @@ if src is None:
     print('Image load failed!')
     sys.exit()
 
-aff = np.array([[1, 0, 200],
-                [0, 1, 100]], dtype=np.float32)
+aff = np.array([[1, 0, 200], [0, 1, 100]], dtype=np.float32)
 
 dst = cv2.warpAffine(src, aff, (0, 0))
 

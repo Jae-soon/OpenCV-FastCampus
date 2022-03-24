@@ -11,6 +11,7 @@ if src is None:
 
 h, w = src.shape[:2]
 
+# indices = 행렬의 x좌표와 y좌표를 표현(y, x)
 map2, map1 = np.indices((h, w), dtype=np.float32)
 map2 = map2 + 10 * np.sin(map1 / 32)
 

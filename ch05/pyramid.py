@@ -9,7 +9,7 @@ if src is None:
     print('Image load failed!')
     sys.exit()
 
-
+# (가로, 세로, w, h)
 rc = (250, 120, 200, 200)  # rectangle tuple
 
 # 원본 영상에 그리기
@@ -22,6 +22,8 @@ cv2.waitKey()
 for i in range(1, 4):
     src = cv2.pyrDown(src)
     cpy = src.copy()
+    # shift = 피라미드에서 자주 사용하는 인자)
+    
     cv2.rectangle(cpy, rc, (0, 0, 255), 2, shift=i)
     cv2.imshow('src', cpy)
     cv2.waitKey()

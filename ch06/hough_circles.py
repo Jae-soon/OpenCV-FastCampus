@@ -11,7 +11,7 @@ if src is None:
     sys.exit()
 
 gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
-blr = cv2.GaussianBlur(gray, (0, 0), 1.0)
+blr = cv2.GaussianBlur(gray, (0, 0), 1.0) # 적절한 원 찾기 위함
 
 
 def on_trackbar(pos):

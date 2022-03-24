@@ -4,7 +4,7 @@ import cv2
 
 
 # 입력 이미지 불러오기
-src = cv2.imread('coins1.jpg')
+src = cv2.imread('coins2.jpg')
 
 if src is None:
     print('Image open failed!')
@@ -22,7 +22,7 @@ sum_of_money = 0
 dst = src.copy()
 if circles is not None:
     for i in range(circles.shape[1]):
-        cx, cy, radius = np.uint16(circles[0][i])
+        cx, cy, radius = np.uint16(circles[0][i]) # double형
         cv2.circle(dst, (cx, cy), radius, (0, 0, 255), 2, cv2.LINE_AA)
 
         # 동전 영역 부분 영상 추출

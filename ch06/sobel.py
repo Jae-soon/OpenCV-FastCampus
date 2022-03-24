@@ -9,6 +9,11 @@ if src is None:
     print('Image load failed!')
     sys.exit()
 
+kernel = np.array([[-1, 0, 1], [-2, 0, 2], [-1, 0 ,1]], dtype=np.float32)
+
+# dx = cv2.filter2D(src, -1, kernel, delta=128)
+# dy = cv2.filter2D(src, -1, kernel, delta=128)
+
 dx = cv2.Sobel(src, -1, 1, 0, delta=128)
 dy = cv2.Sobel(src, -1, 0, 1, delta=128)
 

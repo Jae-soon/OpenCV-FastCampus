@@ -20,7 +20,10 @@ cv2.grabCut(src, mask, rc, None, None, 5, cv2.GC_INIT_WITH_RECT)
 mask2 = np.where((mask == 0) | (mask == 2), 0, 1).astype('uint8')
 dst = src * mask2[:, :, np.newaxis]
 
+mask = mask * 64
+
 # 초기 분할 결과 출력
+cv2.imshow('mask', mask)
 cv2.imshow('dst', dst)
 cv2.waitKey()
 cv2.destroyAllWindows()

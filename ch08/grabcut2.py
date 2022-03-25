@@ -46,7 +46,7 @@ def on_mouse(event, x, y, flags, param):
             cv2.circle(mask, (x, y), 3, cv2.GC_BGD, -1)
             cv2.imshow('dst', dst)
 
-
+ 
 cv2.setMouseCallback('dst', on_mouse)
 
 while True:

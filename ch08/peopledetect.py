@@ -10,7 +10,7 @@ cap = cv2.VideoCapture('vtest.avi')
 if not cap.isOpened():
     print('Video open failed!')
     sys.exit()
-
+ 
 # 보행자 검출을 위한 HOG 기술자 설정
 hog = cv2.HOGDescriptor()
 hog.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())

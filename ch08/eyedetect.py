@@ -30,4 +30,5 @@ for (x1, y1, w1, h1) in faces:
 
 cv2.imshow('src', src)
 cv2.waitKey()
-cv2.destroyAllWindows()
+cv2.destroyAllWindows() 
+ 

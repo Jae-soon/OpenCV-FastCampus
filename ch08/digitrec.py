@@ -57,7 +57,7 @@ def main():
     for i in range(1, cnt):
         (x, y, w, h, s) = stats[i]
 
-        if s < 1000:
+        if s < 1000: 
             continue
 
         # 가장 유사한 숫자 이미지를 선택

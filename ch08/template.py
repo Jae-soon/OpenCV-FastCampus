@@ -1,7 +1,7 @@
 import sys
 import numpy as np
 import cv2
-
+  
 
 # 입력 영상 & 템플릿 영상 불러오기
 src = cv2.imread('circuit.bmp', cv2.IMREAD_GRAYSCALE)
@@ -13,7 +13,7 @@ if src is None or templ is None:
 
 # 입력 영상 밝기 50증가, 가우시안 잡음(sigma=10) 추가
 noise = np.zeros(src.shape, np.int32)
-cv2.randn(noise, 50, 10)
+cv2.randn(noise, 50, 10) 
 src = cv2.add(src, noise, dtype=cv2.CV_8UC3)
 
 # 템플릿 매칭 & 결과 분석

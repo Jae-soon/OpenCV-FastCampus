@@ -62,7 +62,7 @@ ex2, ey2 = 660, 300  # 오른쪽 눈 좌표
 while True:
     ret, frame = cap.read()
 
-    if not ret:
+    if not ret: 
         break
 
     # 얼굴 검출

@@ -27,7 +27,7 @@ dst = cv2.cvtColor(src, cv2.COLOR_GRAY2BGR)
 for pts in contours:
     if cv2.contourArea(pts) < 1000:
         continue
-
+  
     rc = cv2.boundingRect(pts)
     cv2.rectangle(dst, rc, (255, 0, 0), 1)
 

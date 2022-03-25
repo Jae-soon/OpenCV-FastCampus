@@ -10,6 +10,7 @@ if src is None:
     sys.exit()
 
 th, dst = cv2.threshold(src, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+# th, dst = cv2.threshold(src, 0, 255, cv2.THRESH_OTSU)
 print("otsu's threshold:", th)  # 131
 
 cv2.imshow('src', src)

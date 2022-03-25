@@ -9,7 +9,7 @@ src = cv2.imread('contours.bmp', cv2.IMREAD_GRAYSCALE)
 if src is None:
     print('Image load failed!')
     sys.exit()
-
+# contours, hier = cv2.findContours(src, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
 contours, hier = cv2.findContours(src, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_NONE)
 
 dst = cv2.cvtColor(src, cv2.COLOR_GRAY2BGR)

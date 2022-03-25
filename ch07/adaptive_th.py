@@ -22,7 +22,7 @@ def on_trackbar(pos):
 
     cv2.imshow('dst', dst)
 
-
+ 
 cv2.imshow('src', src)
 cv2.namedWindow('dst')
 cv2.createTrackbar('Block Size', 'dst', 0, 200, on_trackbar)

@@ -28,7 +28,7 @@ def main():
         approx = cv2.approxPolyDP(pts, cv2.arcLength(pts, True)*0.02, True)
 
         vtc = len(approx)
-
+        
         if vtc == 3:
             setLabel(img, pts, 'TRI')
         elif vtc == 4:

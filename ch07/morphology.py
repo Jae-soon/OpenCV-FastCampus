@@ -9,6 +9,7 @@ if src is None:
     print('Image load failed!')
     sys.exit()
 
+# window 만들기
 se = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 3))
 dst1 = cv2.erode(src, se)
 

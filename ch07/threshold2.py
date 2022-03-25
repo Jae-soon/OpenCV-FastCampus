@@ -1,6 +1,7 @@
 import sys
 import numpy as np
 import cv2
+from scipy.fftpack import dstn
 
 
 src = cv2.imread('cells.png', cv2.IMREAD_GRAYSCALE)

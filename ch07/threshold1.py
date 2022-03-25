@@ -9,8 +9,8 @@ if src is None:
     print('Image load failed!')
     sys.exit()
 
-_, dst1 = cv2.threshold(src, 100, 255, cv2.THRESH_BINARY)
-_, dst2 = cv2.threshold(src, 210, 255, cv2.THRESH_BINARY)
+_, dst1 = cv2.threshold(src, 210, 255, cv2.THRESH_BINARY)
+_, dst2 = cv2.threshold(src, 100, 255, cv2.THRESH_BINARY)
 
 cv2.imshow('src', src)
 cv2.imshow('dst1', dst1)

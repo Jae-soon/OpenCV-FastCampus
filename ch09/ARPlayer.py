@@ -30,7 +30,7 @@ if not cap2.isOpened():
 
 # AKAZE 특징점 알고리즘 객체 생성
 detector = cv2.AKAZE_create()
-
+ 
 # 기준 영상에서 특징점 검출 및 기술자 생성
 kp1, desc1 = detector.detectAndCompute(src, None)
 

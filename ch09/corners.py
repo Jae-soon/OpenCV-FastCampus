@@ -13,7 +13,8 @@ tm = cv2.TickMeter()
 
 # GFTT
 tm.start()
-
+  
+# 점들의 좌표
 corners = cv2.goodFeaturesToTrack(src, 400, 0.01, 10)
 
 tm.stop()

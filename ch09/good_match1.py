@@ -12,7 +12,7 @@ if src1 is None or src2 is None:
     sys.exit()
 
 # 특징점 알고리즘 객체 생성 (KAZE, AKAZE, ORB 등)
-feature = cv2.KAZE_create()
+feature = cv2.KAZE_create() 
 #feature = cv2.AKAZE_create()
 #feature = cv2.ORB_create()
 
@@ -25,7 +25,7 @@ matcher = cv2.BFMatcher_create()
 #matcher = cv2.BFMatcher_create(cv2.NORM_HAMMING)
 matches = matcher.match(desc1, desc2)
 
-# 좋은 매칭 결과 선별
+# 좋은 매칭 결과 선별 -> distance가 가장 짧은 것
 matches = sorted(matches, key=lambda x: x.distance)
 good_matches = matches[:80]
 

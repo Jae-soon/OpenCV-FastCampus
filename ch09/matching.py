@@ -18,7 +18,7 @@ feature = cv2.KAZE_create()
 
 # 특징점 검출 및 기술자 계산
 kp1, desc1 = feature.detectAndCompute(src1, None)
-kp2, desc2 = feature.detectAndCompute(src2, None)
+kp2, desc2 = feature.detectAndCompute(src2, None)  
 
 # 특징점 매칭
 matcher = cv2.BFMatcher_create()

@@ -23,9 +23,9 @@ kp2, desc2 = feature.detectAndCompute(src2, None)
 # 특징점 매칭
 matcher = cv2.BFMatcher_create()
 #matcher = cv2.BFMatcher_create(cv2.NORM_HAMMING)
-matches = matcher.knnMatch(desc1, desc2, 2)
+matches = matcher.knnMatch(desc1, desc2, 2) # 이중 리스트 생성
 
-# 좋은 매칭 결과 선별
+# 좋은 매칭 결과 선별 -> 가장 좋은 매칭 결과와 두번째 좋은 매칭 결과의 비율이 임계값 보다 작으면
 good_matches = []
 for m in matches:
     if m[0].distance / m[1].distance < 0.7:
@@ -39,6 +39,7 @@ print('# of good_matches:', len(good_matches))
 # 특징점 매칭 결과 영상 생성
 dst = cv2.drawMatches(src1, kp1, src2, kp2, good_matches, None)
 
+cv2.namedWindow('dst', cv2.WINDOW_NORMAL)
 cv2.imshow('dst', dst)
 cv2.waitKey()
 cv2.destroyAllWindows()

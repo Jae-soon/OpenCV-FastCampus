@@ -10,7 +10,7 @@ if not cap.isOpened():
     print('Video open failed!')
     sys.exit()
 
-# 트래커 객체 생성
+# 트래커 객체 생성 
 
 # Kernelized Correlation Filters
 #tracker = cv2.TrackerKCF_create()

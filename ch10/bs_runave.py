@@ -12,15 +12,15 @@ if not cap.isOpened():
 
 # 배경 영상 등록
 ret, back = cap.read()
-
+ 
 if not ret:
     print('Background image registration failed!')
     sys.exit()
 
 # back: uint8 배경, fback: float32 배경
 back = cv2.cvtColor(back, cv2.COLOR_BGR2GRAY)
-back = cv2.GaussianBlur(back, (0, 0), 1.0)
-fback = back.astype(np.float32)
+back = cv2.GaussianBlur(back, (0, 0), 1.0) # noise 제거
+fback = back.astype(np.float32) # 가중치 누적 함수 사용 위한 float형 변환
 
 # 비디오 매 프레임 처리
 while True:
@@ -33,7 +33,8 @@ while True:
     gray = cv2.GaussianBlur(gray, (0, 0), 1.0)
 
     # fback: float32, back: uint8 배경
-    cv2.accumulateWeighted(gray, fback, 0.01)
+    # 배경 영상이 전 프레임과 비교하여 꾸준히 비교
+    cv2.accumulateWeighted(gray, fback, 0.01) # dst = fback
     back = fback.astype(np.uint8)
 
     diff = cv2.absdiff(gray, back)

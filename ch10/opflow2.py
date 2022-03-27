@@ -18,7 +18,7 @@ colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 255, 0),
 
 ptSrc = None
 ptDst = None
-
+ 
 # 카메라 매 프레임 처리
 while True:
     ret, frame = cap.read()

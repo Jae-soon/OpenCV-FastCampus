@@ -19,7 +19,7 @@ if not ret:
 
 back = cv2.cvtColor(back, cv2.COLOR_BGR2GRAY)
 back = cv2.GaussianBlur(back, (0, 0), 1.0)
-
+ 
 # 비디오 매 프레임 처리
 while True:
     ret, frame = cap.read()

@@ -42,7 +42,7 @@ while True:
     frame_hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
     backproj = cv2.calcBackProject([frame_hsv], channels, hist, ranges, 1)
 
-    # CamShift
+    # CamShift -> 영역의 크기가 변경됨
     ret, rc = cv2.CamShift(backproj, rc, term_crit)
 
     # 추적 결과 화면 출력

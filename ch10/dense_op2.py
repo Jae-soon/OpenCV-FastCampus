@@ -22,7 +22,7 @@ cap = cv2.VideoCapture('vtest.avi')
 
 if not cap.isOpened():
     print('Camera open failed!')
-    sys.exit()
+    sys.exit() 
 
 ret, frame1 = cap.read()
 

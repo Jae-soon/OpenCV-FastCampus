@@ -12,7 +12,7 @@ if not cap.isOpened():
 
 # 배경 차분 알고리즘 객체 생성
 bs = cv2.createBackgroundSubtractorMOG2()
-#bs = cv2.createBackgroundSubtractorKNN()
+#bs = cv2.createBackgroundSubtractorKNN() 
 #bs.setDetectShadows(False)
 
 # 비디오 매 프레임 처리

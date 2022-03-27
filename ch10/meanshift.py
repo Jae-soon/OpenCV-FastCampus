@@ -12,7 +12,7 @@ if not cap.isOpened():
 
 # 초기 사각형 영역: (x, y, w, h)
 x, y, w, h = 135, 220, 100, 100
-rc = (x, y, w, h)
+rc = (x, y, w, h) 
 
 ret, frame = cap.read()
 

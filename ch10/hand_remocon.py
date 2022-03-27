@@ -22,9 +22,10 @@ if not ret:
     print('Frame read failed!')
     sys.exit()
 
-frame = cv2.flip(frame, 1)  # 좌우 대칭
+frame = cv2.flip(frame, 1)  # 좌우 대칭 -> like mirror
 gray1 = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 gray1 = cv2.resize(gray1, (w2, h2), interpolation=cv2.INTER_AREA)
+
 
 # 매 프레임에 대해 옵티컬플로우 계산
 while True:
@@ -39,9 +40,11 @@ while True:
     gray2 = cv2.resize(gray2, (w2, h2), interpolation=cv2.INTER_AREA)
 
     # 밀집 옵티컬플로우 계산
+    # flow.shape = (h2, w2, 2)
     flow = cv2.calcOpticalFlowFarneback(gray1, gray2, None, 0.5, 3, 15, 3, 5, 1.1, 0)
     vx, vy = flow[..., 0], flow[..., 1]
     mag, ang = cv2.cartToPolar(vx, vy)
+    # magnitude는 불빛으로 인해 움직임으로 인식할 수 있음
 
     '''
     # 움직임 벡터 시각화
@@ -62,8 +65,8 @@ while True:
     m_mag = math.sqrt(mx*mx + my*my)
 
     if m_mag > 4.0:
-        m_ang = math.atan2(my, mx) * 180 / math.pi
-        m_ang += 180
+        m_ang = math.atan2(my, mx) * 180 / math.pi # -180 ~ 180 변환
+        m_ang += 180 # 0 ~ 360 변환 (좌측 ~ 위 : 0 -> 90)
 
         pt1 = (100, 100)
 

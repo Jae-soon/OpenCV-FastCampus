@@ -8,7 +8,7 @@ src2 = cv2.imread('frame2.jpg')
 
 if src1 is None or src2 is None:
     print('Image load failed!')
-    sys.exit()
+    sys.exit() 
 
 gray1 = cv2.cvtColor(src1, cv2.COLOR_BGR2GRAY)
 
